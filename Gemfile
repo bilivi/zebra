@@ -10,6 +10,9 @@ gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'jquery-rails'
+gem 'less-rails'
+gem 'haml'
+gem 'haml-rails'
 
 group :development do
   gem 'thin'
