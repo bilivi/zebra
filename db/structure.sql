@@ -60,6 +60,39 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
+-- Name: printers; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE printers (
+    id integer NOT NULL,
+    name character varying(255),
+    description text,
+    category_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: printers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE printers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: printers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE printers_id_seq OWNED BY printers.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -76,11 +109,33 @@ ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_s
 
 
 --
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY printers ALTER COLUMN id SET DEFAULT nextval('printers_id_seq'::regclass);
+
+
+--
 -- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY categories
     ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: printers_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY printers
+    ADD CONSTRAINT printers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_printers_on_category_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_printers_on_category_id ON printers USING btree (category_id);
 
 
 --
@@ -95,3 +150,5 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 --
 
 INSERT INTO schema_migrations (version) VALUES ('20130228061817');
+
+INSERT INTO schema_migrations (version) VALUES ('20130228112417');
