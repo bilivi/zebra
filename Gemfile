@@ -13,10 +13,8 @@ gem 'jquery-rails'
 gem 'less-rails'
 gem 'haml'
 gem 'haml-rails'
+gem 'thin'
 
-group :development do
-  gem 'thin'
-end
 
 
 # Gems used only for assets and not required
