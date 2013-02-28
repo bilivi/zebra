@@ -2,3 +2,5 @@ ru:
   categories:
     new:
       title: "Новая категория"
+    edit:
+      title: "Изменить категорию"
