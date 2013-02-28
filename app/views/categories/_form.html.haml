@@ -1,0 +1,6 @@
+= simple_form_for @category, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  .form-actions
+    - title = resource.new_record? ? t('helpers.links.create') : t('helpers.links.save')
+    = f.button :submit, title, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), categories_path, :class => 'btn'

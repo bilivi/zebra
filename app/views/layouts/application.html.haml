@@ -25,14 +25,10 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Zebra
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+          %a.brand(href="#") ZebraLocator CMS
 
-    .container
+
+    .container#main
 
       .row
         .span9
@@ -40,15 +36,16 @@
           = yield
         .span3
           .well.sidebar-nav
-            %h3 Sidebar
+            %h3 Навигация
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li.nav-header Разделы
+              %li= link_to "Категории", categories_path
+              %li= link_to "Принтеры", "/path2"
+              %li= link_to "Партенры", "/path3"
+              %li= link_to "Новости", "/path3"
     
       %footer
-        %p &copy; Company 2013
+        %p &copy; Bilivi.com 2013
     /
       Javascripts
       \==================================================
