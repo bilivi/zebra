@@ -34,9 +34,7 @@
 
 
     .container#main
-      .row
-        = bootstrap_flash
-        = yield
+      = yield(:layout)
 
       %footer
         %p &copy; Bilivi.com 2013
